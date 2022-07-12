@@ -42,7 +42,7 @@ function cardProdutoPainting(produto){
     let elementoNome = document.createElement('span')
     let elementoPreco = document.createElement('p')      
 
-    elementoImagem.src = `./assets/img/Painting/${imagemProduto}`
+    elementoImagem.src = `./assets/img/painting/${imagemProduto}`
     elementoImagem.class = "produto_card_img"
     elementoNome.innerText = `${produto.nome}`
     elementoNome.alt = nome
