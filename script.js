@@ -19,8 +19,6 @@ function createActionItem(arr){
   } return listFigure
 };
 
-console.log(createPaintingItem(itens));
-console.log(createActionItem(itens));
 
 function listarProdutosPainting(arr){
   for(let i = 0; i < arr.length; i++){
@@ -29,8 +27,6 @@ function listarProdutosPainting(arr){
     secaoListPainting.appendChild(cardPainting)
   }
 }
-
-console.log(listarProdutosPainting(listPainting));
 
 function cardProdutoPainting(produto){
     let nome = produto.nome
@@ -67,8 +63,6 @@ function listarProdutosFigure(arr){
     secaoListFigure.appendChild(cardFigure)
   }
 }
-
-console.log(listarProdutosFigure(listFigure));
 
 function cardProdutoFigure(produto){
     let nome = produto.nome
