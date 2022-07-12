@@ -1,66 +1,98 @@
-// Cada item tem imagem, nome, valor
-
-let item = [
-    {
-    id: 01,
-    nome: "Anime Woman",
-    valor: "R$50,00",
-    tipo: "action figure",
-    },
-
-    {
-    id: 02,
-    nome: "Dragon Ball Personagem",
-    valor: "R$80,00",
-    tipo: "action figure",
-    },
-
-    {
-    id: 03,
-    nome: "Star Wars Personagem",
-    valor: "R$75,00",
-    tipo: "action figure",
-    },
-
-    {
-    id: 04,
-    nome: "Clock",
-    valor: "R$36,00",
-    tipo: "painting",
-    },
-
-    {
-    id: 05,
-    nome: "Gamepad",
-    valor: "R$47,00",
-    tipo: "painting",
-    },
-
-    {
-    id: 06,
-    nome: "Personagem",
-    valor: "R$46,00",
-    tipo: "painting",
-    }
-]
-let listFigure = [];
 let listPainting = [];
+let listFigure = [];
+let secaoListPainting = document.querySelector(".produto_card_paint");
+let secaoListFigure = document.querySelector(".produto_card_fig");
 
-function createActionItem(objeto){
-    for(let i = 0; i < item.length; i++){
-        if(objeto[i].tipo == "action figure"){
-        listFigure.push(objeto[i])
+function createPaintingItem(arr){
+  for(let i = 0; i < arr.length; i++){
+  if(arr[i].tipo == "painting"){
+      listPainting.push(arr[i])
+  }
+} return listPainting
+};
+
+function createActionItem(arr){
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i].tipo == "action figure"){
+        listFigure.push(arr[i])
     } 
   } return listFigure
 };
 
-function createPaintingItem(objeto){
-    for(let i = 0; i < item.length; i++){
-    if(objeto[i].tipo == "painting"){
-        listPainting.push(objeto[i])
-    }
-  } return listPainting
-};
+console.log(createPaintingItem(itens));
+console.log(createActionItem(itens));
 
-console.log(createActionItem(item));
-console.log(createPaintingItem(item));
+function listarProdutosPainting(arr){
+  for(let i = 0; i < arr.length; i++){
+    let produto = arr[i]
+    let cardPainting = cardProdutoPainting(produto)
+    secaoListPainting.appendChild(cardPainting)
+  }
+}
+
+console.log(listarProdutosPainting(listPainting));
+
+function cardProdutoPainting(produto){
+    let nome = produto.nome
+    let preco = produto.preco
+    let imagemProduto = produto.imagemProduto
+
+    let elementoLista = document.createElement('li')
+    let elementoImagem = document.createElement('img')
+    let elementoNome = document.createElement('span')
+    let elementoPreco = document.createElement('p')      
+
+    elementoImagem.src = `./assets/img/Painting/${imagemProduto}`
+    elementoImagem.class = "produto_card_img"
+    elementoNome.innerText = `${produto.nome}`
+    elementoNome.alt = nome
+    elementoPreco.innerText = preco
+    
+    elementoLista.appendChild(elementoImagem)
+    elementoLista.appendChild(elementoNome)
+    elementoLista.appendChild(elementoPreco)
+   
+    console.log(nome)
+    console.log(elementoImagem)
+    console.log(elementoNome)
+    console.log(elementoPreco)
+    return elementoLista
+}
+
+
+function listarProdutosFigure(arr){
+  for(let i = 0; i < arr.length; i++){
+    let produto = arr[i]
+    let cardFigure = cardProdutoFigure(produto)
+    secaoListFigure.appendChild(cardFigure)
+  }
+}
+
+console.log(listarProdutosFigure(listFigure));
+
+function cardProdutoFigure(produto){
+    let nome = produto.nome
+    let preco = produto.preco
+    let imagemProduto = produto.imagemProduto
+
+    let elementoLista = document.createElement('li')
+    let elementoImagem = document.createElement('img')
+    let elementoNome = document.createElement('span')
+    let elementoPreco = document.createElement('p')      
+
+    elementoImagem.src = `./assets/img/actions/${imagemProduto}`
+    elementoImagem.class = "produto_card_img"
+    elementoNome.innerText = `${produto.nome}`
+    elementoNome.alt = nome
+    elementoPreco.innerText = preco
+
+    elementoLista.appendChild(elementoImagem)
+    elementoLista.appendChild(elementoNome)
+    elementoLista.appendChild(elementoPreco)
+    
+    console.log(nome)
+    console.log(elementoImagem)
+    console.log(elementoNome)
+    console.log(elementoPreco)
+    return elementoLista
+}
