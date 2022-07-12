@@ -83,7 +83,7 @@ li, span{
     align-items: center;
 }
 
-.produto_card{
+.produto_card_img{
     margin-top: 20px;
     display: flex;
     overflow-x: auto;
@@ -92,6 +92,7 @@ li, span{
 
 img{
     align-items: center;
+    object-fit: cover;
     height: 150px;
     border-radius: 20px;
     justify-content: center;
